@@ -1,0 +1,35 @@
+<%= render 'layouts/navber' %>    
+   <div class="container">
+
+<h1>投稿詳細</h1>
+<h2>投稿者<h2>
+  <p><%= @post.user_id %>
+<h2>Title</h2>
+<p><%= @post.title %></p>
+<h2>内容</h2>
+<p><%= simple_format(@post.content) %></p>
+<p>画像</p>
+<div class="post-images">
+    <% @post.images.each do |image| %>
+      <!--<div class="post-image">-->
+        <%= image_tag image, :class => "size-100" %>
+      <!--</div>-->
+    <% end %>
+</div>
+<hr>
+<p>動画</p>
+<% @post.videos.each do |video| %>
+  <%= video_tag video, :class => "size-100", controls: true %>
+<% end %>
+<hr>
+<% if user_signed_in? %>
+<% if @post.user_id == current_user.id %>
+<p><a href="/posts/<%= @post.id %>/edit" class="btn btn-info">投稿を編集する</a></p>
+<hr>
+<a href="/posts/<%= @post.id %>" data-method="delete" class="btn btn-danger">投稿を削除する</a>
+<% end %>
+<% end %>
+<hr>
+<p><a href="/"  class="btn btn-outline-success">トップに戻る</a></p>
+
+</div>

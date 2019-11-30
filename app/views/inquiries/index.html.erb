@@ -1,0 +1,40 @@
+<h1>お問い合わせ一覧</h1>
+
+<table class="table table-bordered" style="color: white;">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 12%;">名前</th>
+      <th scope="col" style="width: 24%;">メール</th>
+      <th scope="col" style="width: 12%;">電話</th>
+      <th scope="col" style="width: 26%;">内容</th>
+      <th scope="col" style="width: 26%;">回答</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @inquiries.each do |inquiry| %>
+        <tr>
+          <td><%= inquiry.name %></td>
+          <td><%= inquiry.email %></td>
+          <td><%= inquiry.phone %></td>
+          <td><%= link_to inquiry.content, "answers/#{inquiry.id}/new", :style => "color: black;" %></td>
+          <td>
+              <% if inquiry.answers %>
+                <% inquiry.answers.each do |answer| %>
+                  <%= answer.answer %><br>
+                  <%= answer.created_at.in_time_zone('Tokyo').strftime("%Y/%m/%d--%H:%M:%S") %><br>
+                  ----------------<br>
+                <% end %>
+              <% else %>
+                 未回答
+              <% end %>
+          </td>
+        </tr>
+    <% end %>
+  </tbody>
+  <hr>
+  <%= paginate @inquiries %>
+  <hr>
+</table>
+<hr>
+  <%= paginate @inquiries %>
+<hr>

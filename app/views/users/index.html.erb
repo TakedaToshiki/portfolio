@@ -1,0 +1,15 @@
+<%= render 'layouts/navber' %>    
+   <div class="container">
+
+<%= form_tag users_path, :method => "get", :class => "search" do %>
+      <input type="text" name="search" class="search">
+      <input type="submit" value="検索">
+<% end %>
+
+<h1>ユーザー一覧</h1>
+<hr>
+<% @users.each do |user| %>
+<% if user.nickname %>
+    <p><%= link_to user.nickname, user_path(user.id) %></p>
+<% end %>
+<% end %>

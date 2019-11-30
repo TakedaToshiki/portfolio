@@ -1,0 +1,7 @@
+<h1>お問合せ確認</h1>
+<h4>下記お問合せを受付ました</h4>
+<p>名前：<%= @inquiry.name %></p>
+<p>メール：<%= @inquiry.email %></p>
+<p>電話：<%= @inquiry.phone %></p>
+<p>内容：<%= simple_format(@inquiry.content) %></p>
+<%= link_to "トップに戻る", root_path, class: "btn btn-info" %>

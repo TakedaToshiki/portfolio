@@ -1,0 +1,16 @@
+<%= render 'layouts/navber' %>    
+   <div class="container">
+
+<%= form_tag posts_path, :method => "get", :class => "search" do %>
+      <input type="text" name="search" class="search">
+      <input type="submit" value="検索">
+<% end %>
+<h1>投稿一覧</h1>
+<% @posts.each do |post| %>
+    <p><%= link_to post.title, post_path(post) %>..<%= post.content[0..10]...%></p>
+<% end %>
+
+<a href="/posts/new">新しく投稿する</a>
+
+
+

@@ -1,0 +1,11 @@
+<%= render 'layouts/navber' %>    
+   <div class="container">
+       
+<h1>ユーザー情報</h1>
+<hr>
+<p>アイコン：<%= image_tag @user.image, class: "img-200" %></p>
+<p>ニックネーム：<%= @user.nickname %></p>
+<p>自己紹介：<%= @user.introduction %></p>
+<p>好きなゲーム：<%= @user.favor_game %></p>
+</div>
+<hr>

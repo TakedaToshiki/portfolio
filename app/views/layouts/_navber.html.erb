@@ -1,0 +1,58 @@
+<!--<nav class="navbar navbar-dark bg-dark">-->
+<!--  <a class="navbar-brand" href="/">Game_App</a>-->
+<!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--    <span class="navbar-toggler-icon"></span>-->
+<!--  </button>-->
+<!--  <div class="collapse navbar-collapse justify-content-end "  id="navbarNav">-->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="/">Game_App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/about">Game_Appとは <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <% if user_signed_in? %> 
+        <li class="nav-item">
+         <%= link_to "新規投稿",new_post_path,:class => "nav-link"  %>
+        </li>
+        
+        <li class="nav-item">
+         <%= link_to "投稿一覧",posts_path,:class => "nav-link"  %>
+        </li>
+         
+         <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          マイメニュー
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "マイページ", user_path(current_user) , :class => "dropdown-item"   %>
+          <%= link_to "プロフィール編集", edit_user_registration_path(current_user) , :class => "dropdown-item"   %>
+
+          <%= link_to "ユーザー一覧", users_path , :class => "dropdown-item"   %>
+          <%= link_to "ログアウト", destroy_user_session_path, :class => "dropdown-item", :method => "delete"   %>
+          
+        </div>
+      </li>
+        
+        
+        
+      
+      <% else %>
+        <li class="nav-item">
+         <%= link_to "新規登録",new_user_registration_path,:class => "nav-link"   %>
+        </li>
+        
+        <li class="nav-item">
+          <%= link_to "ログイン",new_user_session_path,:class => "nav-link"   %>
+        </li>
+      <% end %>
+      
+      
+    </ul>
+  </div>
+</nav>

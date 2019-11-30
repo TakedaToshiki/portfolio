@@ -1,0 +1,18 @@
+<%= render 'layouts/navber' %>    
+   <div class="container">
+
+<h1>新規投稿</h1>
+<%= form_for @post do |f| %>
+ <%= f.hidden_field :user_id, :value => current_user.id %>
+ <p>タイトル</p>
+ <p><%= f.text_field :title, :class => "form-control col-6", :value => @post.title %></p>
+ <p>画像</p>
+ <p><%= f.file_field :images, multiple: true, :accept => "image/*", :value => @post.images %></p>
+ <p>動画</p>
+ <p><%= f.file_field :videos, multiple: true, :accept => "video/*", :value => @post.videos %></p>
+ <p>詳細</p>
+ <p><%= f.text_area :content, :class => "form-control col-6", :value => @post.content %></p>  
+ <p>Youtube</p>
+ <p><%= f.text_field :youtube, :class => "form-control col-6", :value => @post.youtube %></p> 
+ <p><%= f.submit "投稿" , :class => "btn btn-info" %></p>
+<% end %>

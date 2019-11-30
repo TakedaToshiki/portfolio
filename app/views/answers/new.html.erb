@@ -1,0 +1,13 @@
+<h1>回答</h1>
+<p><%= @inquiry.name %></p>
+<p><%= @inquiry.email %></p>
+<p><%= @inquiry.phone %></p>
+<p><%= simple_format(@inquiry.content) %></p>
+<hr>
+<%= form_for @answer do |f| %>
+ <%= f.hidden_field :inquiry_id, :value => @inquiry.id %>
+ <%= f.text_area :answer %>
+ <%= f.submit "回答する" %>
+<% end %>
+<hr>
+<p><a href="/"  class="btn btn-outline-success">トップに戻る</a></p>

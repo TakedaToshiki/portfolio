@@ -1,0 +1,9 @@
+<p><%= @inquiry.name %> 様</p>
+<p>お問い合わせありがとうございます！</p>
+<hr />   
+<p> お名前；<%= @inquiry.name %></p>   
+<p> メールアドレス；<%= @inquiry.email %></p>   
+<p> 電話番号；<%= @inquiry.phone %></p>   
+<p> お問い合わせ内容；<%= simple_format(@inquiry.content) %></p>   
+<hr>
+<%= render "game_app_mailer/mail_footer" %>

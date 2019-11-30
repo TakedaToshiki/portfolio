@@ -1,0 +1,25 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 11/09 add by matsushita scroll-x at posts/show  start 
+.post-images {
+    white-space: nowrap;
+    height: 110px;
+    width: 400px;
+    overflow-x: scroll;
+}
+
+.post-image {
+    // display: inline-block;
+}
+
+ 
+.size-100  {
+     border-radius: 10px;
+     width: 100px;
+     height: 100px;
+     background: white;
+ }
+ 
+// --------------------------------------- scroll-x at posts/show end 

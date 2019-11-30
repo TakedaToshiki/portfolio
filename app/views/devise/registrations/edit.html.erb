@@ -1,0 +1,70 @@
+
+<%= render 'layouts/navber' %>    
+   <div class="container">
+
+
+
+<h2>アカウント登録 ・編集 <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :eメール %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  
+<div class="field">
+    <%= f.label :ニックネーム %><br />
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+  </div>
+
+<div class="field">
+    <%= f.label :自己紹介 %><br />
+    <%= f.text_field :introduction, autofocus: true, autocomplete: "introduction" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :好きなゲーム %><br />
+    <%= f.text_field :favor_game, autofocus: true, autocomplete: "favor_game" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :アイコン %><br />
+    <%= f.file_field :image, autofocus: true, autocomplete: "image" %>
+  </div>
+  
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :新しいパスワード %> <i>(パスワードを変更しない場合はそのまま登録ボタンをクリック)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> 以上</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :新しいパスワード確認 %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :現在のパスワード %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "登録" , :class => "btn btn-info" %>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "戻る", "/" %>
+</div>

@@ -1,0 +1,8 @@
+ =============================== 
+      <%= @inquiry.name %>様からお問合せ受付ました 
+ =============================== 
+お問合せ内容
+<%= @inquiry.name %> 
+<%= @inquiry.email %> 
+<%= @inquiry.phone %> 
+<%= simple_format(@inquiry.content) %> 
